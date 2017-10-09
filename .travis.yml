@@ -12,5 +12,6 @@ addons:
     - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
     packages:
     - polyml
-    - libpolyml-dev 
+    - libpolyml-dev
+    - g++
     
