@@ -6,5 +6,8 @@ set -e
 
 pushd $HOME
 git clone https://github.com/HOL-Theorem-Prover/HOL.git
+cd HOL
+poly < tools-poly/smart-configure.sml
+./bin/build
 
 popd
