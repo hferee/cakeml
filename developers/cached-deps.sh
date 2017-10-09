@@ -5,9 +5,6 @@
 set -e
 
 pushd $HOME
-
-wget https://www.strongspace.com/xrchz/public/cache.tar.xz
-
-tar --extract --auto-compress --file=cache.tar.xz
+git clone https://github.com/HOL-Theorem-Prover/HOL.git
 
 popd
