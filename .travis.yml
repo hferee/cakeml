@@ -7,6 +7,9 @@ cache:
   directories:
     - $HOME/HOL
 before_install:
-  - echo "deb http://archive.ubuntu.com/ubuntu/ xenial main " | sudo tee -a /etc/apt/sources.list
   - sudo apt-get -qq update
   - sudo apt-get install -y -t xenial libpolyml-dev polyml
+addons:
+  apt:
+    sources:
+    - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main'
