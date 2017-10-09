@@ -6,3 +6,6 @@ env: PATH=$PATH:$HOME/HOL/bin LD_LIBRARY_PATH=$HOME/polyml/lib
 cache:
   directories:
     - $HOME/HOL
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libpolyml-dev polyml
