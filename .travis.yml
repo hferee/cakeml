@@ -17,9 +17,9 @@ addons:
     
 script: 
   - chmod +x developers/regression-dir.sh developers/regression-init.sh
-  - 60 developers/regression-init.sh
-  - travis-wait 60 travis_wait 60 developers/regression-dir.sh semantics/ffi
-  - travis-wait 60 travis_wait 60 developers/regression-dir.sh semantics
+  - developers/regression-init.sh
+  - travis_wait 60 developers/regression-dir.sh semantics/ffi
+  - travis_wait 60 developers/regression-dir.sh semantics
   - travis_wait 60 developers/regression-dir.sh semantics/proofs
   - travis_wait 60 developers/regression-dir.sh basis/pure
   - travis_wait 60 developers/regression-dir.sh translator
