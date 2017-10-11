@@ -16,6 +16,8 @@ addons:
     - g++
     
 script: 
+  - chmod +x developers/regression-dir.sh developers/regression-init.sh
+  - developers/regression-init.sh
   - developers/regression-dir.sh semantics/ffi
   - developers/regression-dir.sh semantics
   - developers/regression-dir.sh semantics/proofs
