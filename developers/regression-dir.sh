@@ -38,7 +38,7 @@ then
       echo "OK: $1 (selftest)"
     else
       echo "FAILED: $1 (selftest)"
-      cat "$1/regression.log"
+      cat "$1/regression.log" 1>&1
       exit 1
     fi
   fi
