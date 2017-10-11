@@ -4,79 +4,80 @@ install: developers/cached-deps.sh
 
 cache:
   directories:
-    - $HOME/HOL
+    - script: $HOME/HOL
     
 addons:
   apt:
     sources:
-    - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
+    - script: sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
     packages:
-    - polyml
-    - libpolyml-dev
-    - g++
+    - script: polyml
+    - script: libpolyml-dev
+    - script: g++
     
-script: 
-  - chmod +x developers/regression-dir.sh developers/regression-init.sh
-  - developers/regression-init.sh
-  - travis_wait 60 developers/regression-dir.sh semantics/ffi
-  - travis_wait 60 developers/regression-dir.sh semantics
-  - travis_wait 60 developers/regression-dir.sh semantics/proofs
-  - travis_wait 60 developers/regression-dir.sh basis/pure
-  - travis_wait 60 developers/regression-dir.sh translator
-  - travis_wait 60 developers/regression-dir.sh compiler/parsing
-  - travis_wait 60 developers/regression-dir.sh characteristic
-  - travis_wait 60 developers/regression-dir.sh basis
-  - travis_wait 60 developers/regression-dir.sh translator/monadic
-  - travis_wait 60 developers/regression-dir.sh compiler/inference
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/reg_alloc
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/gc
-  - travis_wait 60 developers/regression-dir.sh compiler/backend
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/asm
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/x64
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/arm6
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/arm8
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/mips
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/riscv
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/x64
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/arm6
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/arm8
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/mips
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/riscv
-  - travis_wait 60 developers/regression-dir.sh compiler/parsing/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/inference/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/semantics
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/reg_alloc/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/x64/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/arm6/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/arm8/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/mips/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/encoders/riscv/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/x64/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/arm6/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/arm8/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/mips/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/backend/riscv/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/proofs
-  - travis_wait 60 developers/regression-dir.sh candle/set-theory
-  - travis_wait 60 developers/regression-dir.sh candle/syntax-lib
-  - travis_wait 60 developers/regression-dir.sh candle/standard/syntax
-  - travis_wait 60 developers/regression-dir.sh candle/standard/semantics
-  - travis_wait 60 developers/regression-dir.sh candle/standard/monadic
-  - travis_wait 60 developers/regression-dir.sh candle/standard/ml_kernel
-  - travis_wait 60 developers/regression-dir.sh candle/standard/opentheory
-  - travis_wait 60 developers/regression-dir.sh compiler/benchmarks
-  - travis_wait 60 developers/regression-dir.sh examples
-  - travis_wait 60 developers/regression-dir.sh examples/compilation
-  - travis_wait 60 developers/regression-dir.sh examples/compilation/proofs
-  - travis_wait 60 developers/regression-dir.sh translator/okasaki-examples
-  - travis_wait 60 developers/regression-dir.sh translator/other-examples
-  - travis_wait 60 developers/regression-dir.sh compiler/parsing/tests
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation/x64
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/x64
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/x64/proofs
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation/riscv
-  - travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/riscv
+jobs:
+  include:
+  - script: chmod +x developers/regression-dir.sh developers/regression-init.sh
+  - script: developers/regression-init.sh
+  - script: travis_wait 60 developers/regression-dir.sh semantics/ffi
+  - script: travis_wait 60 developers/regression-dir.sh semantics
+  - script: travis_wait 60 developers/regression-dir.sh semantics/proofs
+  - script: travis_wait 60 developers/regression-dir.sh basis/pure
+  - script: travis_wait 60 developers/regression-dir.sh translator
+  - script: travis_wait 60 developers/regression-dir.sh compiler/parsing
+  - script: travis_wait 60 developers/regression-dir.sh characteristic
+  - script: travis_wait 60 developers/regression-dir.sh basis
+  - script: travis_wait 60 developers/regression-dir.sh translator/monadic
+  - script: travis_wait 60 developers/regression-dir.sh compiler/inference
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/reg_alloc
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/gc
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/asm
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/x64
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/arm6
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/arm8
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/mips
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/riscv
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/x64
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/arm6
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/arm8
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/mips
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/riscv
+  - script: travis_wait 60 developers/regression-dir.sh compiler/parsing/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/inference/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/semantics
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/reg_alloc/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/x64/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/arm6/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/arm8/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/mips/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/encoders/riscv/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/x64/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/arm6/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/arm8/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/mips/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/backend/riscv/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/proofs
+  - script: travis_wait 60 developers/regression-dir.sh candle/set-theory
+  - script: travis_wait 60 developers/regression-dir.sh candle/syntax-lib
+  - script: travis_wait 60 developers/regression-dir.sh candle/standard/syntax
+  - script: travis_wait 60 developers/regression-dir.sh candle/standard/semantics
+  - script: travis_wait 60 developers/regression-dir.sh candle/standard/monadic
+  - script: travis_wait 60 developers/regression-dir.sh candle/standard/ml_kernel
+  - script: travis_wait 60 developers/regression-dir.sh candle/standard/opentheory
+  - script: travis_wait 60 developers/regression-dir.sh compiler/benchmarks
+  - script: travis_wait 60 developers/regression-dir.sh examples
+  - script: travis_wait 60 developers/regression-dir.sh examples/compilation
+  - script: travis_wait 60 developers/regression-dir.sh examples/compilation/proofs
+  - script: travis_wait 60 developers/regression-dir.sh translator/okasaki-examples
+  - script: travis_wait 60 developers/regression-dir.sh translator/other-examples
+  - script: travis_wait 60 developers/regression-dir.sh compiler/parsing/tests
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation/x64
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/x64
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/x64/proofs
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation/riscv
+  - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/riscv
 
 env: PATH=$PATH:$HOME/HOL/bin LD_LIBRARY_PATH=$HOME/polyml/lib
