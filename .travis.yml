@@ -17,7 +17,8 @@ addons:
     
 jobs:
   include:
-  - script: chmod +x developers/regression-dir.sh developers/regression-init.sh
+  - stage: init
+    script: chmod +x developers/regression-dir.sh developers/regression-init.sh
   - script: developers/regression-init.sh
   - script: travis_wait 60 developers/regression-dir.sh semantics/ffi
   - script: travis_wait 60 developers/regression-dir.sh semantics
