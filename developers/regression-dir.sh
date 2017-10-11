@@ -1,5 +1,5 @@
 #!/bin/bash
-
+## regression test for a single directory
 set -e
 
 cd $(dirname "$0")
