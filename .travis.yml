@@ -9,7 +9,8 @@ cache:
 addons:
   apt:
     sources:
-    - script: sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
+    - script: 
+      - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
     packages:
     - script: polyml
     - script: libpolyml-dev
