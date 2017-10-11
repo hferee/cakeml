@@ -1,6 +1,5 @@
 #!/bin/bash
-## A script for downloading cached state for Travis. This file is
-## probably obsolete, since Travis is no longer supported.
+## A script for installing hol for travis
 
 set -e
 pushd $HOME
