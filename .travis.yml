@@ -16,6 +16,7 @@ addons:
     - script: g++
     
 jobs:
+  env: PATH=$PATH:$HOME/HOL/bin LD_LIBRARY_PATH=$HOME/polyml/lib
   include:
   - stage: init
     script: chmod +x developers/regression-dir.sh developers/regression-init.sh
@@ -81,4 +82,3 @@ jobs:
   - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/translation/riscv
   - script: travis_wait 60 developers/regression-dir.sh compiler/bootstrap/compilation/riscv
 
-env: PATH=$PATH:$HOME/HOL/bin LD_LIBRARY_PATH=$HOME/polyml/lib
