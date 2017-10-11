@@ -1,6 +1,20 @@
 language: c
-sudo: false
+sudo: true
 install: developers/cached-deps.sh
+
+cache:
+  directories:
+    - $HOME/HOL
+    
+addons:
+  apt:
+    sources:
+    - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ xenial main universe'
+    packages:
+    - polyml
+    - libpolyml-dev
+    - g++
+    
 script: 
   - developers/regression-dir.sh semantics/ffi
   - developers/regression-dir.sh semantics
